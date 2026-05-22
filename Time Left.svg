@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" viewBox="0 0 256 256">
+  <!-- Generator: Adobe Illustrator 30.4.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 226)  -->
+  <defs>
+    <style>
+      .st0, .st1, .st2, .st3, .st4, .st5, .st6 {
+        fill: none;
+      }
+
+      .st1 {
+        stroke-dasharray: 407.15 565.49;
+      }
+
+      .st1, .st2, .st3, .st4, .st5, .st6 {
+        stroke-width: 22px;
+      }
+
+      .st1, .st3 {
+        stroke: #e2553d;
+      }
+
+      .st1, .st4, .st6 {
+        stroke-linecap: round;
+      }
+
+      .st2, .st3, .st5 {
+        stroke-opacity: .18;
+      }
+
+      .st2, .st6 {
+        stroke: #3d8be2;
+      }
+
+      .st7 {
+        fill: #16161a;
+      }
+
+      .st4 {
+        stroke-dasharray: 214.26 389.56;
+      }
+
+      .st4, .st5 {
+        stroke: #e2a73d;
+      }
+
+      .st8 {
+        clip-path: url(#clippath);
+      }
+
+      .st6 {
+        stroke-dasharray: 81.18 213.63;
+      }
+    </style>
+    <clipPath id="clippath">
+      <path class="st0" d="M0,128c0,98.21,29.79,128,128,128s128-29.79,128-128S226.21,0,128,0,0,29.79,0,128Z"/>
+    </clipPath>
+  </defs>
+  <g id="background">
+    <path id="bg-squircle" class="st7" d="M128,0C29.79,0,0,29.79,0,128s29.79,128,128,128,128-29.79,128-128S226.21,0,128,0Z"/>
+  </g>
+  <g class="st8">
+    <g>
+      <g id="ring-outer">
+        <circle id="ring-outer-track" class="st3" cx="128" cy="128" r="90"/>
+        <circle id="ring-outer-arc" class="st1" cx="128" cy="128" r="90"/>
+      </g>
+      <g id="ring-middle">
+        <circle id="ring-middle-track" class="st5" cx="128" cy="128" r="62"/>
+        <circle id="ring-middle-arc" class="st4" cx="128" cy="128" r="62"/>
+      </g>
+      <g id="ring-inner">
+        <circle id="ring-inner-track" class="st2" cx="128" cy="128" r="34"/>
+        <circle id="ring-inner-arc" class="st6" cx="128" cy="128" r="34"/>
+      </g>
+    </g>
+  </g>
+</svg>

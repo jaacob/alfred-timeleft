@@ -5,7 +5,7 @@
 	<key>bundleid</key>
 	<string>com.jaacob.timeleft</string>
 	<key>category</key>
-	<string>Productivity</string>
+	<string>Tools</string>
 	<key>connections</key>
 	<dict>
 		<key>11111111-AAAA-BBBB-CCCC-111111111111</key>
@@ -128,7 +128,7 @@ The year-end date is by-year. Each January it auto-resets to Dec 31, and a remin
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>1.0</string>
+	<string>3.0.1</string>
 	<key>userconfigurationconfig</key>
 	<array>
 		<dict>
@@ -290,6 +290,6 @@ The year-end date is by-year. Each January it auto-resets to Dec 31, and a remin
 		</dict>
 	</array>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/jaacob/alfred-timeleft</string>
 </dict>
 </plist>
