@@ -25,7 +25,7 @@
 	<key>createdby</key>
 	<string>Jacob Reiff</string>
 	<key>description</key>
-	<string>Show how much of the current work week, month, and year has elapsed and remains (business days only; year ends on the third Friday of December).</string>
+	<string>Show how much of the current week, month, quarter, and year has elapsed and remains. Each period is independently toggleable and can count business days only or all days. A custom year-end date can be set for annual shutdowns.</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -66,7 +66,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Work week / month / year elapsed</string>
+				<string>Week / month / quarter / year elapsed</string>
 				<key>title</key>
 				<string>Time Left</string>
 				<key>type</key>
@@ -102,7 +102,14 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Type `timeleft` in Alfred to see the percentage of the current work week (Mon-Fri), month (business days), and year that has elapsed and remains, plus days elapsed / total. The year is counted from Jan 1 through the third Friday of December (year-end shutdown). Press Enter on any row to copy that line; pick "Copy all" to copy all three.</string>
+	<string>Type `timeleft` in Alfred to see the percentage of the current week, month, quarter, and year that has elapsed and remains, plus days elapsed / total. Press Enter on any row to copy that line; pick "Copy all" to copy all visible lines.
+
+Open Configure Workflow to:
+- Toggle each period on or off independently.
+- Choose business days (Mon-Fri) or all days per period.
+- Optionally set a custom year-end date (e.g. for an annual shutdown).
+
+The year-end date is by-year. Each January it auto-resets to Dec 31, and a reminder appears in the results until you either enter a new date for the current year or clear the field (which means "Dec 31 is fine").</string>
 	<key>uidata</key>
 	<dict>
 		<key>11111111-AAAA-BBBB-CCCC-111111111111</key>
@@ -122,6 +129,166 @@
 	</dict>
 	<key>version</key>
 	<string>1.0</string>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>label</key>
+				<string>Show the Week row</string>
+			</dict>
+			<key>description</key>
+			<string>Display the current week's progress.</string>
+			<key>label</key>
+			<string>Show Week</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>SHOW_WEEK</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>label</key>
+				<string>Count Mon-Fri only (skip weekends)</string>
+			</dict>
+			<key>description</key>
+			<string>When on, the Week row is out of 5 (Mon-Fri). When off, out of 7.</string>
+			<key>label</key>
+			<string>Week: business days only</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>WEEK_BUSINESS_DAYS</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>label</key>
+				<string>Show the Month row</string>
+			</dict>
+			<key>description</key>
+			<string>Display the current month's progress.</string>
+			<key>label</key>
+			<string>Show Month</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>SHOW_MONTH</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>label</key>
+				<string>Count Mon-Fri only (skip weekends)</string>
+			</dict>
+			<key>description</key>
+			<string>When on, the Month row counts only business days. When off, it counts every calendar day.</string>
+			<key>label</key>
+			<string>Month: business days only</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>MONTH_BUSINESS_DAYS</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>label</key>
+				<string>Show the Quarter row</string>
+			</dict>
+			<key>description</key>
+			<string>Display the current quarter's progress (Q1-Q4).</string>
+			<key>label</key>
+			<string>Show Quarter</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>SHOW_QUARTER</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>label</key>
+				<string>Count Mon-Fri only (skip weekends)</string>
+			</dict>
+			<key>description</key>
+			<string>When on, the Quarter row counts only business days. When off, it counts every calendar day.</string>
+			<key>label</key>
+			<string>Quarter: business days only</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>QUARTER_BUSINESS_DAYS</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>label</key>
+				<string>Show the Year row</string>
+			</dict>
+			<key>description</key>
+			<string>Display the current year's progress.</string>
+			<key>label</key>
+			<string>Show Year</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>SHOW_YEAR</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>label</key>
+				<string>Count Mon-Fri only (skip weekends)</string>
+			</dict>
+			<key>description</key>
+			<string>When on, the Year row counts only business days. When off, it counts every calendar day.</string>
+			<key>label</key>
+			<string>Year: business days only</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>YEAR_BUSINESS_DAYS</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string>YYYY-MM-DD</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Optional. Use this if your year effectively ends before Dec 31 (e.g. an annual shutdown). Leave blank for Dec 31. Each January, the date auto-resets &#8212; re-enter a date in the new year if you want a custom one. Until you do, a reminder row appears in the results.</string>
+			<key>label</key>
+			<string>Year-end date (YYYY-MM-DD)</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>YEAR_END_DATE</string>
+		</dict>
+	</array>
 	<key>webaddress</key>
 	<string></string>
 </dict>
