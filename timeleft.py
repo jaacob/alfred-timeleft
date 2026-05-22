@@ -1,28 +1,31 @@
 #!/usr/bin/env python3
 import calendar
 import json
-from datetime import date
+from datetime import date, timedelta
 
 today = date.today()
 
 weekday = today.isoweekday()
-week_total = 7
+week_elapsed = min(weekday, 5)
+week_total = 5
 
-month_total = calendar.monthrange(today.year, today.month)[1]
-month_elapsed = today.day
+days_in_month = calendar.monthrange(today.year, today.month)[1]
+month_total = sum(
+    1 for d in range(1, days_in_month + 1)
+    if date(today.year, today.month, d).isoweekday() <= 5
+)
+month_elapsed = sum(
+    1 for d in range(1, today.day + 1)
+    if date(today.year, today.month, d).isoweekday() <= 5
+)
 
-quarter = (today.month - 1) // 3 + 1
-q_start_month = (quarter - 1) * 3 + 1
-q_end_month = q_start_month + 2
-q_start = date(today.year, q_start_month, 1)
-q_end = date(today.year, q_end_month, calendar.monthrange(today.year, q_end_month)[1])
-q_total = (q_end - q_start).days + 1
-q_elapsed = (today - q_start).days + 1
+dec1 = date(today.year, 12, 1)
+first_friday_day = 1 + ((5 - dec1.isoweekday()) % 7)
+year_end = date(today.year, 12, first_friday_day) + timedelta(days=14)
 
 y_start = date(today.year, 1, 1)
-y_end = date(today.year, 12, 31)
-y_total = (y_end - y_start).days + 1
-y_elapsed = (today - y_start).days + 1
+y_total = (year_end - y_start).days + 1
+y_elapsed = min((today - y_start).days + 1, y_total)
 
 
 def fmt(label, elapsed, total):
@@ -32,9 +35,8 @@ def fmt(label, elapsed, total):
 
 
 rows = [
-    ("Week", weekday, week_total, "Day {} of 7 (Mon-Sun)".format(weekday)),
+    ("Week", week_elapsed, week_total, f"Day {week_elapsed} of 5 (Mon-Fri)"),
     ("Month", month_elapsed, month_total, today.strftime("%B %Y")),
-    ("Quarter", q_elapsed, q_total, f"Q{quarter} {today.year}"),
     ("Year", y_elapsed, y_total, str(today.year)),
 ]
 
@@ -53,7 +55,7 @@ for label, elapsed, total, subtitle in rows:
 all_lines = "\n".join(fmt(label, elapsed, total) for label, elapsed, total, _ in rows)
 items.append({
     "title": "Copy all",
-    "subtitle": "Copy all four lines to clipboard",
+    "subtitle": "Copy all three lines to clipboard",
     "arg": all_lines,
     "text": {"copy": all_lines, "largetype": all_lines},
     "valid": True,

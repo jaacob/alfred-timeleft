@@ -25,7 +25,7 @@
 	<key>createdby</key>
 	<string>Jacob Reiff</string>
 	<key>description</key>
-	<string>Show how much of the current week, month, quarter, and year has elapsed and remains.</string>
+	<string>Show how much of the current work week, month, and year has elapsed and remains (business days only; year ends on the third Friday of December).</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -66,7 +66,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Week / month / quarter / year elapsed</string>
+				<string>Work week / month / year elapsed</string>
 				<key>title</key>
 				<string>Time Left</string>
 				<key>type</key>
@@ -102,7 +102,7 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Type `timeleft` in Alfred to see the percentage of the current week (Mon-Sun), month, quarter, and year that has elapsed and remains, plus days elapsed / total. Press Enter on any row to copy that line; pick "Copy all" to copy all four.</string>
+	<string>Type `timeleft` in Alfred to see the percentage of the current work week (Mon-Fri), month (business days), and year that has elapsed and remains, plus days elapsed / total. The year is counted from Jan 1 through the third Friday of December (year-end shutdown). Press Enter on any row to copy that line; pick "Copy all" to copy all three.</string>
 	<key>uidata</key>
 	<dict>
 		<key>11111111-AAAA-BBBB-CCCC-111111111111</key>
